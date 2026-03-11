@@ -1,0 +1,33 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Generated
+*.g.dart
+*.freezed.dart
+*.gr.dart
+
+# Android
+**/android/**/GeneratedPluginRegistrant.java
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/gradle-wrapper.jar
+
+# Web
+**/web/.last_build_id
+
+# Misc
+.DS_Store
+*.swp
+*.swo
+pubspec.lock

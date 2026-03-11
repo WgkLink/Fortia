@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(podman-compose -f container/compose.yaml run --rm flutter-create 2>&1)",
+      "Bash(podman-compose -f container/compose.yaml build flutter-create 2>&1 | tail -20)"
+    ]
+  }
+}

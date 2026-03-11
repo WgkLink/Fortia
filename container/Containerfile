@@ -1,0 +1,18 @@
+FROM ghcr.io/cirruslabs/flutter:latest
+
+# Create non-root user matching host UID
+ARG HOST_UID=1000
+RUN useradd -m -u ${HOST_UID} builder && \
+    mkdir -p /app && chown builder:builder /app
+
+# Disable analytics as root before switching
+RUN flutter config --no-analytics && dart --disable-analytics
+
+# Copy Flutter SDK ownership to builder
+RUN chown -R builder:builder /sdks
+
+USER builder
+WORKDIR /app
+
+# Pre-cache web SDK as builder
+RUN flutter precache --web

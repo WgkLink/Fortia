@@ -1,0 +1,1 @@
+O aplicativo sera utilizado para registrar treinos da acamedia, seu nome e Fortia. Tera uma enorme inspiracao no aplicativo Hevy. A ideia inicial e criar um treino pra semana, e registrar diariamente os pesos, exercicios, repeticoes, tempo de descando entre series e tempo total de treino. Seja criativo para um softawre como esse.

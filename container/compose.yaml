@@ -1,0 +1,68 @@
+services:
+  flutter-create:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: bash -c "flutter create --org com.fortia --project-name fortia --platforms android,web . && flutter pub get"
+
+  pub-get:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: flutter pub get
+
+  build-runner:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: dart run build_runner build --delete-conflicting-outputs
+
+  build-apk:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: flutter build apk --release
+
+  build-web:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: flutter build web --release
+
+  web-dev:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    command: flutter run -d web-server --web-port=8080 --web-hostname=0.0.0.0
+
+  test:
+    build:
+      context: ..
+      dockerfile: container/Containerfile
+    volumes:
+      - ..:/app
+    working_dir: /app
+    command: flutter test
+
+volumes:
+  apk-output:
